@@ -1,49 +1,187 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🚀 GATEONAUT — Your Mission Control for GATE Preparation
 
-# Run and deploy your AI Studio app
+**GATEONAUT** is an intelligent, student-first **GATE preparation companion** designed to help aspirants plan better, track smarter, and prepare strategically for **top IITs (especially IIT Bombay)**.
 
-This contains everything you need to run your app locally.
+Unlike generic tools or complex platforms, GATEONAUT focuses on **clarity, structure, and actionable insights** — built by a GATE aspirant, for GATE aspirants.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1LpHx-pkZBwQnf11R4d_KiZGPhrDwfyPw
+---
 
-## Run Locally
+## 🎯 What is GATEONAUT?
 
-**Prerequisites:**  Node.js
+GATEONAUT is a **web-based AI-assisted preparation platform** that helps students:
 
+- Track syllabus progress topic-wise
+- Identify weak areas using PYQs and performance signals
+- Generate **AI-driven study strategies**
+- Maintain structured short notes
+- Stay consistent with long-term preparation (2–3 year horizon)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+It is **not a coaching institute**, and **not a content-selling platform**.  
+It is a **mission dashboard** for serious aspirants.
 
-## Local Ollama (optional)
+---
 
-If you run an Ollama server locally and want the app to use it instead of Gemini, enable the env toggle in `.env.local`:
+## 🧠 Why GATEONAUT exists (The Problem)
 
-- `VITE_USE_OLLAMA=true`
-- `VITE_OLLAMA_URL=http://localhost:11434` (default)
+Most GATE aspirants struggle with:
+- ❌ No clear long-term strategy
+- ❌ Losing track of weak topics
+- ❌ Overusing Notion / Excel with no intelligence
+- ❌ Random preparation without feedback
+- ❌ Burnout due to lack of direction
 
-Quick manual tests (replace `<model-name>` with your model):
+GATEONAUT solves this by combining:
+- **Structured data**
+- **Smart tracking**
+- **AI-based guidance**
+- **Minimal but powerful UI**
 
-- PowerShell (Invoke-RestMethod):
-```powershell
-$body = @{ model = "<model-name>"; prompt = "Hello from Ollama" } | ConvertTo-Json
-Invoke-RestMethod -Uri "http://localhost:11434/api/generate" -Method Post -ContentType "application/json" -Body $body
-```
+---
 
-- curl.exe (Windows):
-```powershell
-curl.exe -s -X POST "http://localhost:11434/api/generate" `
-   -H "Content-Type: application/json" `
-   -d '{"model":"<model-name>","prompt":"Hello from Ollama"}'
-```
+## ✨ Core Features (Current)
 
-- Node (quick one-liner, Node >=18):
+### 📊 Smart Syllabus Tracking
+- Subject → Chapter → Topic hierarchy
+- Track:
+  - Lecture completion
+  - PYQ attempts
+  - PYQ failures (weak zones)
+- Identify **primary vs secondary topics**
+
+### 🧠 AI-Powered Study Assistant (Gemini)
+- Topic explanations (IIT-level clarity)
+- Short note generation
+- Strategy suggestions based on:
+  - Days left
+  - Target marks
+  - Weak areas
+- Honest feasibility analysis for top IITs
+
+### 📝 AI Short Notes Generator
+- Concise, exam-focused notes
+- Formula-first approach
+- Common GATE traps highlighted
+
+### 📈 Strategy Generator
+- Generates **7-day actionable plans**
+- Prioritizes topics with maximum ROI
+- Adapts to remaining time and target score
+
+---
+
+## 🔥 What Makes GATEONAUT Different?
+
+| GATEONAUT | Others |
+|---------|--------|
+| Built for **long-term GATE prep** | Mostly short-term |
+| Strategy-first, not content-first | Content-heavy |
+| AI understands **your progress** | Generic AI answers |
+| Minimal, distraction-free UI | Overloaded dashboards |
+| Designed by a real GATE aspirant | Corporate-first tools |
+
+---
+
+## 💎 Planned Premium Features (Roadmap)
+
+> Premium is designed to be **affordable for students** (₹ / $ per month).
+
+### 🔒 Premium (Upcoming)
+- Personalized rank & IIT admission probability
+- Advanced AI analytics (trend detection)
+- Weekly & monthly performance reports
+- Smart revision scheduler
+- Multi-year GATE preparation planner
+- Cloud progress sync & backups
+- Priority AI usage
+
+### 🧪 Experimental / Future Scope
+- Counseling support (GOAPS / CCMN / PSU)
+- College & branch recommendation engine
+- AI-based burnout & consistency analysis
+- Offline-first progressive web app (PWA)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React + TypeScript + Vite
+- **Styling:** Tailwind CSS
+- **AI:** Google Gemini API
+- **Auth & DB:** Firebase
+- **Hosting:** Vercel
+- **State & Logic:** Custom domain models (GATE-specific)
+
+---
+
+## 🧪 Run Locally
+
+### Prerequisites
+- Node.js (v18+ recommended)
+
+### Steps
+
 ```bash
-node -e "fetch('http://localhost:11434/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'<model-name>',prompt:'Hello from Ollama'})}).then(r=>r.json()).then(console.log).catch(console.error)"
+npm install
+````
+
+Create `.env.local` in project root:
+
+```env
+VITE_GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-The app will route AI requests to Ollama when `VITE_USE_OLLAMA=true`; otherwise it falls back to Gemini.
+Run the app:
+
+```bash
+npm run dev
+```
+
+Open:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 🔐 Security Note
+
+* No secrets are committed
+* Environment variables are used properly
+* Gemini API key is required for AI features
+* Backend/serverless migration planned for production security
+
+---
+
+## 🤝 Contributing
+
+This project is currently **founder-driven**, but meaningful contributions are welcome in the future.
+
+If you are:
+
+* A GATE aspirant
+* An EdTech enthusiast
+* A frontend/backend developer
+
+You’re welcome to open issues or discussions.
+
+---
+
+## 📌 Vision
+
+> **GATEONAUT aims to become the most honest, focused, and aspirant-friendly GATE preparation platform — not by adding noise, but by removing confusion.**
+
+---
+
+## 👤 Author
+
+**Upangshu Basak**
+B.Tech (AEIE) | GATE Aspirant (2027)
+Building tools I wish I had when I started.
+
+---
+
+⭐ If you find this project meaningful, consider starring the repo.
+
+````
+
